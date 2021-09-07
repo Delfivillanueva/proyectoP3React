@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import CardPeliculas from '../CardPeliculas/CardPeliculas';
+import Filter from '../Filter/Filter';
 
 class Peliculas extends Component{
 constructor(){
     super();
     this.state = {
         peliculas: [],
+        peliculasIniciales: [],
+        
     }
 }
 componentDidMount(){
@@ -24,16 +27,41 @@ componentDidMount(){
         })
         .catch(error => console.log(error))
 }
+
+borrarTarjeta(id){
+    let peliculasQuedan = this.state.peliculas.filter(pelicula =>{
+        return pelicula.id != id
+    })
+    this.setState({
+        peliculas : peliculasQuedan, peliculasIniciales: peliculasQuedan
+    })
+}
+
+filtrarPeliculas(textoAFiltrar) {
+    let peliculasFiltradas = this.state.peliculasIniciales.filter(pelicula => {
+        return pelicula.name.toLowerCase().includes(textoAFiltrar.toLowerCase())
+    })
+
+    this.setState({
+        peliculas: peliculasFiltradas
+    })
+}
+
 render(){
     return(
-<React.Fragment>
-{
+        <React.Fragment>
+            <div>
+                <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
+                </div>
+                
+                {
                 this.state.peliculas.map((pelicula,index)=>{
-                   return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}/>
+                   return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
+                   borrar = {(idEliminar) => this.borrarTarjeta(idEliminar) }/>
                
                 })
               }  
-</React.Fragment>
+        </React.Fragment>
     );
 }
 }
