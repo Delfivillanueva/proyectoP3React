@@ -8,24 +8,12 @@ constructor(){
     this.state = {
         peliculas: [],
         peliculasIniciales: [],
+        pagActual: 1,
         
     }
 }
 componentDidMount(){
-    console.log("Se cargo el componente");
-    let url = 'https://api.themoviedb.org/3/movie/popular?api_key=5d02a3447f4e9a0a8eaf7b743846e766&language=en-US&page=1';
-
-    fetch(url)
-        .then(respuesta => {
-            return respuesta.json()
-        })    
-        .then((data) => {
-            console.log(data);
-            this.setState({
-               peliculas: data.results,
-            })
-        })
-        .catch(error => console.log(error))
+    this.masPeliculas()
 }
 
 borrarTarjeta(id){
@@ -46,6 +34,22 @@ filtrarPeliculas(textoAFiltrar) {
         peliculas: peliculasFiltradas
     })
 }
+//metodo para ver mas tarjetas
+masPeliculas(){
+    let url = 'https://api.themoviedb.org/3/movie/popular?api_key=5d02a3447f4e9a0a8eaf7b743846e766&language=en-US&page=' + this.state.pagActual;
+    console.log("NOS TRAE LA PAG" + url)
+    fetch(url)
+    .then(respuesta => {
+      return respuesta.json()
+  })  
+  .then((data) => {
+      this.setState({
+          peliculas: this.state.peliculas.concat(data.results.slice(0,10)),
+          peliculasIniciales: this.state.peliculasIniciales.concat(data.results.slice(0,10)),
+          pagActual: this.state.pagActual + 1,
+      })
+  })
+  }
 
 render(){
     return(
@@ -60,6 +64,7 @@ render(){
                
                 })
               }  
+            <button onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
         </React.Fragment>
     );
 }
