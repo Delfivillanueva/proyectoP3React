@@ -36,6 +36,8 @@ class CardPeliculas extends Component{
                     <h3>{this.props.dataPelicula.original_title}</h3>
                     <p className="description">{this.props.dataPelicula.overview}</p>
                     <p className={`extra ${this.state.detalle ? 'show' : 'hide'}`}>Fecha de estreno : {this.props.dataPelicula.release_date}</p>
+                    <p className={`extra ${this.state.detalle ? 'show' : 'hide'}`}>Popularidad : {this.props.dataPelicula.popularity}</p>
+                    <p className={`extra ${this.state.detalle ? 'show' : 'hide'}`}>Puntaje : {this.props.dataPelicula.vote_average}</p>
                 <p className='more' onClick={()=>this.detalle()}>{this.state.texto}</p>
                 <button onClick = { () => this.props.borrar(this.props.dataPelicula.id)} >Borrar</button>
 

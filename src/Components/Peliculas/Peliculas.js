@@ -39,7 +39,7 @@ borrarTarjeta(id){
 
 filtrarPeliculas(textoAFiltrar) {
     let peliculasFiltradas = this.state.peliculasIniciales.filter(pelicula => {
-        return pelicula.name.toLowerCase().includes(textoAFiltrar.toLowerCase())
+        return pelicula.original_title.toLowerCase().includes(textoAFiltrar.toLowerCase())
     })
 
     this.setState({
@@ -53,7 +53,6 @@ render(){
             <div>
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
                 </div>
-                
                 {
                 this.state.peliculas.map((pelicula,index)=>{
                    return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
