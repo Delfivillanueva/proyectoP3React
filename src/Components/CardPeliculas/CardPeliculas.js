@@ -32,7 +32,7 @@ class CardPeliculas extends Component{
         return(
             <div className= 'peli-card'>
 
-                    <img alt='20' src={`https://image.tmdb.org/t/p/w500/${this.props.dataPelicula.backdrop_path}`} alt=""/>
+                    <img className = 'img' alt='20' src={`https://image.tmdb.org/t/p/w500/${this.props.dataPelicula.backdrop_path}`} alt=""/>
                     <h3>{this.props.dataPelicula.original_title}</h3>
                     <p className="description">{this.props.dataPelicula.overview}</p>
                     <p className={`extra ${this.state.detalle ? 'show' : 'hide'}`}>Fecha de estreno : {this.props.dataPelicula.release_date}</p>

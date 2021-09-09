@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import CardPeliculas from '../CardPeliculas/CardPeliculas';
 import Filter from '../Filter/Filter';
+import './Container.css';
+
 
 class Peliculas extends Component{
 constructor(){
@@ -57,6 +59,8 @@ render(){
             <div>
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
                 </div>
+
+                <div className="row card-container">
                 {
                 this.state.peliculas.map((pelicula,index)=>{
                    return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
@@ -64,6 +68,7 @@ render(){
                
                 })
               }  
+              </div>
             <button onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
         </React.Fragment>
     );
