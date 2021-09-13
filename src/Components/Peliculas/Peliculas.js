@@ -54,6 +54,8 @@ render(){
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
                 </div>
                 {
+                this.state.peliculas.length === 0 ?
+                <p>Cargando aplicación...</p> :
                 this.state.peliculas.map((pelicula,index)=>{
                    return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
                    borrar = {(idEliminar) => this.borrarTarjeta(idEliminar) }/>
