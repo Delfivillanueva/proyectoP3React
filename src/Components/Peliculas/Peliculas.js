@@ -11,7 +11,7 @@ constructor(){
         peliculasIniciales: [],
         pagActual: 1,
         cargando: true,
-        orientacion: 'row',
+        orientacion: 'fila',
     }
 }
 componentDidMount(){
@@ -55,14 +55,20 @@ masPeliculas(){
   })
   }
 
+  cambiarOrientacion(nuevaOrientacion){
+      this.setState({
+          orientacion: nuevaOrientacion,
+      })
+  }
+
 render(){
     return(
         <React.Fragment>
            <section>
+
                 <form action="">
-                <i className="fas fa-th"></i>
-                <i className="fas fa-align-justify"></i>
-                
+                <i onClick = {()=> {this.cambiarOrientacion('fila')}} className="fas fa-th" ></i>
+                <i onClick = {()=> {this.cambiarOrientacion('column')}} className="fas fa-align-justify"></i>
                 </form>
              </section>
             <div>
