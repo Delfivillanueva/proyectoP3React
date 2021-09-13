@@ -39,7 +39,7 @@ class CardPeliculas extends Component{
                     <p className={`extra ${this.state.detalle ? 'show' : 'hide'}`}>Popularidad : {this.props.dataPelicula.popularity}</p>
                     <p className={`extra ${this.state.detalle ? 'show' : 'hide'}`}>Puntaje : {this.props.dataPelicula.vote_average}</p>
                 <p className='more' onClick={()=>this.detalle()}>{this.state.texto}</p>
-                <button onClick = { () => this.props.borrar(this.props.dataPelicula.id)} >Borrar</button>
+                <button className = 'btnBorrar' onClick = { () => this.props.borrar(this.props.dataPelicula.id)} >Borrar</button>
 
                 
                     

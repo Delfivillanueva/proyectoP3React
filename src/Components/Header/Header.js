@@ -1,9 +1,10 @@
 import React from 'react';
+import './Header.css'
 
 function Header(){
     return(
         <header>
-        <h1>Recomendaciones de peliculas.</h1>
+        <h1 className ='titulo' >Recomendaciones de peliculas.</h1>
         <section>
            
             <form action="">
