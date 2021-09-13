@@ -6,6 +6,22 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+};
 
+.btnAgregar {
+    align-items: right;
+};
 
-}
+.fila {
+    margin-top: 20px;
+    padding: 0 10px;
+    display: flex!important;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+};
+
+.column{
+    display: flex;
+    flex-direction: column;
+};

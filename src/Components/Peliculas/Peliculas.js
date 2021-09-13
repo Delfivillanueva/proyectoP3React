@@ -11,6 +11,7 @@ constructor(){
         peliculasIniciales: [],
         pagActual: 1,
         cargando: true,
+        orientacion: 'row',
     }
 }
 componentDidMount(){
@@ -57,10 +58,18 @@ masPeliculas(){
 render(){
     return(
         <React.Fragment>
+           <section>
+                <form action="">
+                <i className="fas fa-th"></i>
+                <i className="fas fa-align-justify"></i>
+                
+                </form>
+             </section>
             <div>
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
-                </div>
-            <div className= "row card-container">
+            </div>
+            <button className='btnAgregar' onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
+            <div className= {`${this.state.orientacion} `}>
                
               {
                   this.state.cargando ? 
@@ -75,7 +84,7 @@ render(){
                   })
               }
             </div> 
-            <button onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
+           
         </React.Fragment>
     );
 }
