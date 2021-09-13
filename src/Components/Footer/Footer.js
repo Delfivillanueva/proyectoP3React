@@ -1,10 +1,9 @@
 import React from 'react';
-import './Footer.css';
 
 function Footer(){
     return(
         <footer>
-        <ul className="foot">
+        <ul className="team">
             <li>Delfina Villanueva</li>
             <li>Esperanza Uranga</li>
             <li>Agnes Dormal</li>

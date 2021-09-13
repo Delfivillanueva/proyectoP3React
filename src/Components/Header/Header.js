@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function Header(){
     return(
         <header>
@@ -8,9 +7,8 @@ function Header(){
         <section>
            
             <form action="">
-            <i className="fas fa-th"></i>
-            <i className="fas fa-align-justify"></i>
-            
+                <input type="text" name="search" id="" placeholder="Search"/>
+                <button type="submit"><i className="fas fa-search"></i></button>
             </form>
         </section>
     </header>
