@@ -9,7 +9,7 @@ constructor(){
         peliculas: [],
         peliculasIniciales: [],
         pagActual: 1,
-        
+        cargando: true,
     }
 }
 componentDidMount(){
@@ -27,11 +27,12 @@ borrarTarjeta(id){
 
 filtrarPeliculas(textoAFiltrar) {
     let peliculasFiltradas = this.state.peliculasIniciales.filter(pelicula => {
+        
         return pelicula.original_title.toLowerCase().includes(textoAFiltrar.toLowerCase())
     })
 
     this.setState({
-        peliculas: peliculasFiltradas
+        peliculas: peliculasFiltradas,
     })
 }
 //metodo para ver mas tarjetas
@@ -47,6 +48,7 @@ masPeliculas(){
           peliculas: this.state.peliculas.concat(data.results.slice(0,10)),
           peliculasIniciales: this.state.peliculasIniciales.concat(data.results.slice(0,10)),
           pagActual: this.state.pagActual + 1,
+          cargando: false,
       })
   })
   }
@@ -57,15 +59,18 @@ render(){
             <div>
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
                 </div>
-                {
-                this.state.peliculas.length === 0 ?
-                <p>Cargando aplicación...</p> :
-                this.state.peliculas.map((pelicula,index)=>{
-                   return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
-                   borrar = {(idEliminar) => this.borrarTarjeta(idEliminar) }/>
-               
-                })
-              }  
+              {
+                  this.state.cargando ? 
+                  <p>Cargando...</p> : 
+                  
+                  this.state.peliculas.length === 0 ?
+                  <p>No hay resultados para tu busqueda </p> :
+                  this.state.peliculas.map((pelicula,index)=>{
+                     return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
+                     borrar = {(idEliminar) => this.borrarTarjeta(idEliminar) }/>
+                 
+                  })
+              }
             <button onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
         </React.Fragment>
     );
