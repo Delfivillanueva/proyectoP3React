@@ -51,6 +51,8 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
     display: flex;
     margin-top: 0px;
     margin-right: 0px;
+    border-style: none;
+    background-color: white;
 }
 
 .btnBorrar:hover{
