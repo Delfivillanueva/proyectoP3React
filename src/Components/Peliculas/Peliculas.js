@@ -64,6 +64,8 @@ masPeliculas(){
 render(){
     return(
         <React.Fragment>
+
+            <div className="itemsContainer">
            <section >
 
                 <form action="">
@@ -78,10 +80,13 @@ render(){
                
                 </form>
              </section>
+             </div>
             <div>
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
             </div>
             <button className='btnAgregar' onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
+
+
             <div className= {`${this.state.orientacion} `}>
                
               {
