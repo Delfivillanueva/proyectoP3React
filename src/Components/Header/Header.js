@@ -5,7 +5,7 @@ import Filter from '../Filter/Filter';
 function Header(){
     return(
         <header>
-        <h1 className ='titulo' >Recomendaciones de peliculas.</h1>
+        <h1 className ='titulo' > Rating Peliculas.</h1>
         
     </header>
 )}

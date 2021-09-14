@@ -64,11 +64,18 @@ masPeliculas(){
 render(){
     return(
         <React.Fragment>
-           <section>
+           <section >
 
                 <form action="">
+                <div className="iconFile">
                 <i onClick = {()=> {this.cambiarOrientacion('fila')}} className="fas fa-th" ></i>
-                <i onClick = {()=> {this.cambiarOrientacion('column')}} className="fas fa-align-justify"></i>
+                    </div>
+
+                    <div className="iconColumn">
+                    <i onClick = {()=> {this.cambiarOrientacion('column')}} className="fas fa-align-justify"></i>
+                        </div>
+               
+               
                 </form>
              </section>
             <div>
@@ -79,10 +86,10 @@ render(){
                
               {
                   this.state.cargando ? 
-                  <p>Cargando...</p> : 
+                  <p className="text">Cargando...</p> : 
                   
                   this.state.peliculas.length === 0 ?
-                  <p>No hay resultados para tu busqueda </p> :
+                  <p className="text">No hay resultados para tu busqueda </p> :
                   this.state.peliculas.map((pelicula,index)=>{
                      return  <CardPeliculas dataPelicula= {pelicula} key = {pelicula.original_title + index}
                      borrar = {(idEliminar) => this.borrarTarjeta(idEliminar) }/>

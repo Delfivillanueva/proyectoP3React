@@ -37,3 +37,16 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 .show{
     display: block;
 }
+
+
+.btnBorrar{
+    position: 'absolute';
+    align-items: flex-end;
+    color: '#f6c9ae';
+    font-weight: 'bold';
+    font-size: 30;
+}
+
+.btnBorrar:hover{
+    color: rgb(0, 174, 255);
+}
