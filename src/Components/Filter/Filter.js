@@ -25,7 +25,7 @@ class Filter extends Component{
         return(
             <React.Fragment>
                 <form onSubmit = {(e) => this.evitarEnviar(e)}>
-                    <label className="textoBus" for ='nombre'> Pelicula a Filtrar : </label>
+                    <label className="textoBus" for ='nombre'> Película a filtrar       </label>
                     <input className="filter" type = 'text' name = 'nombre' id ='nombre'  placeholder="              Buscar" onChange =
                      {(e) => this.controlarCambios(e) } value = {this.state.filtrarPor} />
                 </form>

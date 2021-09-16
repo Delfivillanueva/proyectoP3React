@@ -1,11 +1,14 @@
 .titulo {
-    text-align: left;
+    text-align: center;
     color: rgb(0, 174, 255);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 50px;
+    margin-left: 550px;
 }
 
 .head{
     background-color: #D0D0D0;
     display: flex;
+    border-bottom-left-radius:30px ;
+    border-bottom-right-radius:30px ;
 }

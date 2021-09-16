@@ -65,27 +65,17 @@ render(){
     return(
         <React.Fragment>
 
-            <div className="itemsContainer">
-           <section >
-
-                <form action="">
-                <div className="iconFile">
-                <i onClick = {()=> {this.cambiarOrientacion('fila')}} className="fas fa-th" ></i>
-                    </div>
-
-                    <div className="iconColumn">
-                    <i onClick = {()=> {this.cambiarOrientacion('column')}} className="fas fa-align-justify"></i>
-                        </div>
-               
-               
-                </form>
-             </section>
-             </div>
+            
             <div>
                 <Filter filtrarPeliculas = {(texto) => this.filtrarPeliculas(texto)} />
             </div>
+            <div className="itemsContainer">
+                <i onClick = {()=> {this.cambiarOrientacion('fila')}} className="fas fa-th" ></i>
+                <i onClick = {()=> {this.cambiarOrientacion('column')}} className="fas fa-align-justify"></i>
+             </div>
+            <div className="agregar">
             <button className='btnAgregar' onClick= {()=> this.masPeliculas()}>Más Peliculas</button>
-
+            </div>
 
             <div className= {`${this.state.orientacion} `}>
                
